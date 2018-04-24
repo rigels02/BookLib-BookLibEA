@@ -1,5 +1,6 @@
 # JEE application example
 Netbeans projects
+Note: instead of Glassfish server the Payara server is used.
 
 ## Data base
 Books library DB Running on Derby server accessible via Glassfish server and defined
