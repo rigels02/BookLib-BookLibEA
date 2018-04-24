@@ -12,6 +12,8 @@ Data access is defined as EJB @Stateless session bean using BookFacadeLocal
 interface.
 
 ## Books data management logic
+
+BookLibEA-ejb module.
 Books CRUD busyness logic (service) is defined with BooksBean - Stateless bean.
 BooksBean implements both interfaces : Local,Remote (IBooksBeanLocal,IBooksBeanRemote).
 This service is accessible for clients applications by using interfaces:
@@ -20,6 +22,9 @@ This service is accessible for clients applications by using interfaces:
 (not JEE module) or even resided on other jvm (on the same machine or even on other machine in network).
 
 The remote interface with DTO model are resided as separate Library project BookLibEA_itf.
+
+Repository: https://github.com/rigels02/BookLib-BookLibEA_itf.git
+
 
 ## Local web client app BookLibEA-war
 BookLibEA-war is web app module of BookLibEA JEE app.
@@ -32,10 +37,14 @@ by EJB injection via local interface:
 ~~~~
 
 ## Remote jar standalone client BookLib-jar
+
 It is simple JavaSE console application. To access BooksBean service it uses remote interface and, therefore, has dependency from BookLibEA_itf lib.
 In addition, it needs Glassfish library gf-client.jar as reference in classpath.
 
+Repository: https://github.com/rigels02/BookLib-BookLib.jar.git
+
 ## Remote war web application BookLib-war
+
 The BookLib-war is standalone web app resided on the same JVM (Glassfish server)
 as JEE BookLibEA. So, it use remote interface to access BooksBean service, therefore,
 it has dependency from lib BookLibEA_itf.jar.
@@ -44,3 +53,5 @@ The servlet is used to access this service by injecting remote interface:
  @EJB
     IBooksBeanRemote booksEjb;
 ~~~~
+
+Repository: https://github.com/rigels02/BookLib-BookLib.war.git
